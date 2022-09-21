@@ -1,6 +1,6 @@
 # OrthoPredict (2018)
 
-This repository contains the code needed to build a machine learning application that was used to predict negative outcomes after a surgery. The application was built with the NHS, who provided the dataset used. The data has not been included in this repository as it is private. 
+This repository contains the code needed to build a machine learning application that was used to predict negative outcomes after a surgery. The application was built with the NHS. The data has not been included in this repository as it is private. 
 
 If you would like to run the code or have any questions, please reach out. 
 
@@ -26,7 +26,7 @@ The application has the following functionalities (Note, this demo has been crea
 6. This page is returned with the prediction for the values of the input columns. In this use case, a patient is classified as "high" or "low" risk. 
 <img src="./images/6.png" width="600" height="350" />
 
-7. An admin can also run inference on all eight commonly used models at once using the following page. 
+7. An admin can also run inference on all eight commonly used models at once using the following page. (Note, the tick boxes can be used for binary variables, in this case we have not shown the variable names corresponding to the tick boxes).
 <img src="./images/7.png" width="600" height="350" />
 
 8. Then, the following page shows all the predictions. 
