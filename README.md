@@ -1,4 +1,4 @@
-# Surgery Prediction Application (2018)
+# Surgery Negative Outcome Prediction Application (2018)
 
 This repository contains the code needed to build a machine learning application that was used to predict negative outcomes after a surgery. The application was built with the NHS. The data has not been included in this repository as it is private. 
 
