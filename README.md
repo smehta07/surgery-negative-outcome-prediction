@@ -50,8 +50,6 @@ db.env - contains the connection string to the SQL database
 
 __init__.py - declares folder as a package
 
-files - contains the data csv files and models
-
 templates - contains HTML pages
 
 static - static files to do with styling
