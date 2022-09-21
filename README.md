@@ -1,6 +1,6 @@
 # Surgery Negative Outcome Prediction Application (2018)
 
-This repository contains the code needed to build a machine learning application that was used to predict negative outcomes after a surgery. The application was built with the NHS. The data has not been included in this repository as it is private. 
+This repository contains the code needed to build a machine learning application that was used to predict negative outcomes after a surgery. The application was built with the NHS and the data has not been included in this repository as it is private. 
 
 If you would like to run the code or have any questions, please reach out. 
 
@@ -36,22 +36,16 @@ The application has the following functionalities (Note, this demo has been crea
 
 ## Code Overview
 
-The app is held in a Docker container, the Dockerfile and requirements.txt are for Docker. 
+The application is built in Python, using Flask for the web interface and is held in a Docker container. 
 
-Dockerfile - for the docker environment
+The Dockerfile and requirements.txt are for Docker: 
+- Dockerfile - for the docker environment
+- requirements.txt - the modules which are needed for the app
 
-requirements.txt - the modules which are needed for the app
-
-The app folder then contains the code for the application.
-
-app.py - the main python file 
-
-db.env - contains the connection string to the SQL database
-
-__init__.py - declares folder as a package
-
-templates - contains HTML pages
-
-static - static files to do with styling
-
-migrations - if the structure of the SQL datbase is changed in the code, this folder migrates the changes to the database
+The app folder then contains the code for the application:
+- app.py - the main python file 
+- db.env - contains the connection string to the SQL database
+- __init__.py - declares folder as a package
+- templates - contains HTML pages
+- static - static files to do with styling
+- migrations - if the structure of the SQL datbase is changed in the code, this folder migrates the changes to the database
