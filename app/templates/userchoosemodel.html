@@ -1,0 +1,53 @@
+<!-- 
+    Page allowing users to choose from admin generated models
+-->
+
+{% extends "userbase.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <title>Predict an outcome</title>
+            
+        <style>
+            h1              { color: black; text-align: center}
+            body            { font-family: sans-serif; background: linear-gradient(to bottom , white 70%,#41B6E6); }
+            .div1 
+            {     position: fixed;
+                top: -100; left: 0; bottom: 0; right: 0;
+                margin: auto;
+                width: 200px;
+                height: 120px;
+                
+                background: white;
+                padding: 22px 32px;
+                -moz-border-radius: 8px;
+                -webkit-border-radius: 8px;
+                border-radius: 8px;
+                -moz-box-shadow: 0 0 18px #005EB8;
+                -webkit-box-shadow: 0 0 18px #005EB8;
+                -box-shadow: 0 0 18px #005EB8;
+                text-align: center;}
+        </style>
+
+ </head>
+
+<body>
+<h1>Choose a model to predict an outcome from the dropdown menu:</h1>
+<div class="div1">
+<form action="/userpredictmodel" method="POST">
+<select name="modelnames" >
+    {% for modelname in modelnames %}
+    <option name= "{{modelname}}" SELECTED>{{modelname}}</option>
+    {% endfor %}
+</select><br><br>
+<input type=submit value="choose" >
+</form>
+</div>
+</select>
+</body>
+</html>
+{% endblock %}

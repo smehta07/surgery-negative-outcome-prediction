@@ -1,0 +1,51 @@
+<!-- 
+    Page for users to input values for prediction
+-->
+
+{% extends "userbase.html" %}
+{% block content %}
+
+<head>
+    <style>
+      h1              { color: black; text-align: center}
+      .body            { font-family: sans-serif; background: linear-gradient(to bottom , white 70%,#41B6E6); background-repeat: no-repeat; background-attachment: fixed; }
+      .div1 
+        {     position: relative;
+      top: 50; left: 0; bottom: 0; right: 0;
+      margin: auto;
+      width: 400px;
+      height: 1350px;
+      
+      background: white;
+      padding: 22px 32px;
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
+      border-radius: 8px;
+      -moz-box-shadow: 0 0 18px #005EB8;
+      -webkit-box-shadow: 0 0 18px #005EB8;
+      -box-shadow: 0 0 18px #005EB8;
+      text-align: center;}
+      </style>
+  </head>
+
+<title>Predict an outcome</title>
+<body class="body">
+<h1>Predict {{outcome}}:</h1>
+<div class="div1">
+<p>Enter the values of the predictor columns:<br>
+  Enter a 1/Y or 0/N for the co-morbidities</p>
+<form action="/usermodelrunanalysis" method="POST">
+  <!--label>Model used: </label-->    
+  <input type=hidden value="{{ modelname }} " name=modelName >
+      {% for row in range(1) %}
+        {% for row in range(no_columns) %}
+          <label>{{ headers[row][0:100] }}</label>
+          <input type="text" class="form-control" placeholder="{{ headers[row][0:100] }}" name="{{ headers[row][0:100] }}" required="required"/>
+        {% endfor %}
+      {% endfor %}
+      <p><br><input type=submit value=Predict>
+
+</form></div>
+</body>
+
+{% endblock %}

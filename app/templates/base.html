@@ -1,0 +1,47 @@
+<!-- 
+    Base page which includes options to login/logout and displays messages if any errors
+    Register, login and logout extend from this page
+-->
+
+<html>
+        <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+            
+            <style>
+                .img {width:200px;
+            height:75px;
+            position: absolute;
+            top: 0px;
+            right: 0px;}
+            .error { color: red}
+            </style>
+
+            {% if title %}
+            <title>{{ title }} - OrthoPredict</title>
+            {% else %}
+            <title>Welcome to OrthoPredict</title>
+            {% endif %}            
+        </head>
+        <body>
+            <div>
+                Welcome to OrthoPredict
+                <img src="{{url_for('static', filename='logo.jpg')}}"  class="img">
+            </div>
+            <hr>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            
+                {% for message in messages %}
+                <p class="error">{{ message }}</p>
+                {% endfor %}
+            
+            {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </body>
+    </html>

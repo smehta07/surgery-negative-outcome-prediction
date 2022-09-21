@@ -1,0 +1,53 @@
+<!-- 
+    Page which allows admin to upload datafile
+-->
+<!doctype html>
+
+
+{% extends "adminbase.html" %}
+{% block content %}
+<head>
+<style>
+  .main_div            { min-height: 100vh ;font-family: sans-serif; background: linear-gradient(to bottom , white 70%,#0072CE); }
+  h1 {
+    text-align: center;
+  }
+  .div1 
+      {     position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 500px;
+    height: 150px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 0 18px #003087;
+    -webkit-box-shadow: 0 0 18px #003087;
+    -box-shadow: 0 0 18px #003087;
+    text-align: center}
+</style>
+
+</head>
+
+
+<title>Upload data</title>
+
+<div class="main_div">
+<h1 >Upload new File</h1>
+<div class="div1">
+<form action="" method=post enctype=multipart/form-data>
+  <p><input type=file name=file>
+     <input type=submit value=Upload>
+</form>
+<form action="/homepage" >
+  <p><input type=submit value=Homepage>
+</form>
+
+</div>
+</div>
+
+
+{% endblock %}

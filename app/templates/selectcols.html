@@ -1,0 +1,118 @@
+<!-- 
+    Page for admin to select which columns to use as predictors and outcome in model generation
+-->
+
+{% extends "adminbase.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+     h1, h3              { color: black; text-align: center}
+      body            { font-family: sans-serif; background: linear-gradient(to bottom , white 70%,#0072CE); overflow-x: scroll; white-space: nowrap; background-repeat: no-repeat; background-attachment: fixed;}
+
+#container {
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2;
+    
+    width:200px;
+    height:200px;
+}
+.modelnames 
+      {     position: relative ;
+    top: 50; left: -300; bottom: 0; right: 0;
+    margin: auto;
+    width: 300px;
+    height: 250px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+    .colnames
+      {     position: relative;
+    top: -200; left: 300; bottom: 0; right: 0;
+    margin: auto;
+    width: 800px;
+    height: 300px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+
+}
+    .selects
+      {     position: relative;
+    top: -200; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 700px;
+    height: 300px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 0 18px #003087;
+    -webkit-box-shadow: 0 0 18px #003087;
+    -box-shadow: 0 0 18px #003087;
+    text-align: center;}
+</style>
+</head>
+<title>Build a Model</title>
+
+<body>
+
+<title>Select your predictor and outcome columns</title>
+<h1>Select your predictor and outcome columns:</h1>
+
+
+<div class="modelnames">
+<p>Existing model names</p>
+
+<table>
+    <tr>
+        {% for row in range(modelnames_length) %}
+        <tr><td> {{ modelnames[row] }} </td>
+        </tr>
+    {% endfor %}
+    </tr>
+       
+</table>
+</div>
+<div class="colnames"> 
+<p>Column names and the associated number from datafile </p>
+
+<div id="container">
+<table>
+    <tr>
+        {% for row in range(no_columns) %}
+        <tr><td> {{row+1}} </td><td>{{ headers[row][0:100] }}</td>
+        </tr>
+    {% endfor %}
+    </tr>
+       
+</table></div>
+</div>
+<p> </p>
+<div class="selects">
+<form action="/buildmodel" method="POST">
+    <label>Predictor Columns (e.g. "1,3,5")</label>
+    <input type="text" class="form-control" placeholder="predictors" name="predictors"/>
+    <label>Outcome Column (one column maximum)</label>
+    <input type="text" class="form-control" placeholder="outcome" name="outcome"/>
+    <label>Unique Model Name</label>
+    <input type="text" class="form-control" placeholder="model name" name="modelName"/>
+    <p></p>
+    <input type=submit value="Run Algorithm">
+    </form>
+
+
+</body>
+</html>{% endblock %}

@@ -1,0 +1,46 @@
+<!-- 
+    User registration page
+-->
+
+{% extends "base.html" %}
+{% block content %}
+<title>Register </title>
+<head>
+        <style>
+            .div1 
+          {     position: fixed;
+        top: 0; left: 0; bottom: 0; right: 0;
+        margin: auto;
+        width: 500px;
+        height: 550px;
+        
+        background: white;
+        padding: 22px 32px;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        -moz-box-shadow: 0 0 18px #005EB8;
+        -webkit-box-shadow: 0 0 18px #005EB8;
+        -box-shadow: 0 0 18px #005EB8;
+        text-align: center;}
+        </style>
+    </head>
+
+    <div class="div1">
+<h1>Register</h1>
+        <form id="signup" action="/register" method="post">
+                Username :  <input type="text" id="username" name="username"><br>
+                Email :  <input type="text" id="email" name="email"><br>
+                Password : <input type="password" id="password" name="password"><br><br>
+                User Type: <br><input type="radio" name="usertype" value="user" checked>General User<br>
+                <input type="radio" name="usertype" value="admin" > Admin<br><br>
+                Please choose a security question to set up for password reset purposes:
+                <br><input type="radio" name="securityquestion" value="Mother's maiden name" checked>Mother's maiden name<br>
+                <input type="radio" name="securityquestion" value="First pet name" > First pet name <br>
+                <input type="radio" name="securityquestion" value="Memorable word" > Memorable word <br><br>
+                Answer :  <input type="text" id="securityanswer" name="securityanswer"><br><br>
+                
+                <input type="submit" id="submit" text="Signup">
+            </form>
+</div>
+{% endblock %}

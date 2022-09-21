@@ -1,0 +1,44 @@
+<!-- 
+    Part of password reset flow, page which allows users to answer security question
+-->
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<head>
+        <style>
+            .div1 
+          {     position: fixed;
+        top: -60; left: 0; bottom: 0; right: 0;
+        margin: auto;
+        width: 500px;
+        height: 300px;
+        
+        background: white;
+        padding: 22px 32px;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        -moz-box-shadow: 0 0 18px #005EB8;
+        -webkit-box-shadow: 0 0 18px #005EB8;
+        -box-shadow: 0 0 18px #005EB8;
+        text-align: center;}
+        </style>
+    </head>
+
+ <div class="div1">
+   <h2>Answer the following Security Question: </h2>
+    <h3> {{ secqn }} </h3> <br>
+ <form action="{{ url_for('reset_ans_question') }}" method="POST">
+   <dl>
+       Your email is: <input type="text" id="email" name="email" value="{{ email }}"><br>
+        Answer :  <input type="text" id="answer" name="answer">
+     
+   </dl>
+   <input type=submit value="Submit">
+ </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,145 @@
+<!-- 
+    Admin homepage    
+-->
+
+{% extends "adminbase.html" %}
+{% block content %}
+
+<head>
+  <title>Admin Homepage</title>
+    <style>
+      h1              { color: black; text-align: center}
+      body            { font-family: sans-serif; background: linear-gradient(to bottom , white 70%,#0072CE); }
+      .div1 
+      {     position: fixed;
+    top: -100; left: -500; bottom: 0; right: 0;
+    margin: auto;
+    width: 300px;
+    height: 150px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 0 18px #003087;
+    -webkit-box-shadow: 0 0 18px #003087;
+    -box-shadow: 0 0 18px #003087;
+    text-align: center;}
+    .div2 
+      {     position: fixed;
+    top: -100; left: 0; bottom: 0; right: -500;
+    margin: auto;
+    width: 300px;
+    height: 150px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 0 18px #003087;
+    -webkit-box-shadow: 0 0 18px #003087;
+    -box-shadow: 0 0 18px #003087;
+    text-align: center;}
+    .div3 
+      {     position: fixed;
+    top: 375; left: -500; bottom: 0; right: 0;
+    margin: auto;
+    width: 300px;
+    height: 275px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 0 18px #003087;
+    -webkit-box-shadow: 0 0 18px #003087;
+    -box-shadow: 0 0 18px #003087;
+    text-align: center;}
+    .div4 
+      {     position: fixed;
+    top: 375; left: 0; bottom: 0; right: -500;
+    margin: auto;
+    width: 300px;
+    height: 275px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 0 18px #003087;
+    -webkit-box-shadow: 0 0 18px #003087;
+    -box-shadow: 0 0 18px #003087;
+    text-align: center;}
+
+    .container {
+    column-count:2;
+    -moz-column-count:2;
+    -webkit-column-count:2;
+    
+    width:200px;
+    height:200px;
+}
+      </style>
+</head>
+
+<h1>Welcome {{username}}!</h1>
+
+  <div class="div1">
+  <h3> Datafile Actions </h3>
+  <form action="/upload" >
+  <p><input type=submit value=Upload >
+</form>
+</div>
+
+
+<div class="div2">
+    <h3> Build Models</h3>
+<form action="/selectcols" >
+  <p><input type=submit value="Build">
+</form>
+</div>
+
+<div class="div3">
+  <h3> Regenerate Models </h3>
+  <div class="container">
+<form action="/modeldvt" >
+  <p><input type=submit value="DVT">
+</form>
+<form action="/modelpe" >
+  <p><input type=submit value="PE">
+</form>
+<form action="/modelrenal" >
+  <p><input type=submit value="REN">
+</form>
+<form action="/modeldhosp90" >
+  <p><input type=submit value="DHOSP90">
+</form>
+<form action="/modeldout90" >
+  <p><input type=submit value="DOUT90">
+</form>
+<form action="/modelpne" >
+  <p><input type=submit value="PNE">
+</form>
+<form action="/modelmi" >
+  <p><input type=submit value="MI30">
+</form>
+<form action="/modelreadm" >
+  <p><input type=submit value="READM">
+</form></div>
+</div>
+
+
+<div class="div4">
+  <h3> Predict </h3>
+<form action="/choosemodel" >
+  <p><input type=submit value="Predict an outcome">
+  </form>
+  <form action="/adminpredictcomp" >
+    <p><input type=submit value="Predict general complications">
+    </form></div>
+
+  {% endblock %}

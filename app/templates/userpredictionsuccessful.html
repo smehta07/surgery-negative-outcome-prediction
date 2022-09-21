@@ -1,0 +1,57 @@
+<!-- 
+    This page is displayed after a user has made a prediction
+-->
+
+{% extends "userbase.html" %}
+{% block content %}
+
+<head>
+    <style>
+        h1              { color: black; text-align: center}
+        body            { font-family: sans-serif; background: linear-gradient(to bottom , white 70%,#41B6E6);height: 100%; background-repeat: no-repeat; background-attachment: fixed; }
+        .results 
+      {     position: relative;
+    top: 50; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 600px;
+    height: 575px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 0 18px #005EB8;
+    -webkit-box-shadow: 0 0 18px #005EB8;
+    -box-shadow: 0 0 18px #005EB8;
+    text-align: center;
+}
+        </style>
+</head>
+
+<!doctype html>
+  <title>Prediction</title>
+  <h1>Prediction </h1>
+  <div class="results">
+    <p><b> {{final_pred}} </b></p>
+    <label><u> Supplementary Information on Model: </u></label><br>
+    <p>The AUROC of the model is shown below. The closer the score is to 1, the better the model. <br> 
+      {{roc}} </p>
+  
+    <p> Precision: The ability of the classifier not to label as positive a sample that is negative <br>
+    For class 0: {{ precision1 }} <br> 
+    For class 1: {{ precision2 }}</p>
+  
+    <p> Recall: The ability of the classifier to find all the positive samples <br> 
+      For class 0: {{ recall1 }} <br> 
+      For class 1: {{ recall2 }}</p>
+  
+    <p> True Positives: {{tp}} <br>
+      False Positives: {{fp}} <br>
+      True Negatives: {{tn}} <br>
+      False Negatives: {{fn}} </p>
+  <form action="/userchoosemodel" >
+    <p><input type=submit value="Predict another outcome">
+  </form>
+</div>
+  {% endblock %}

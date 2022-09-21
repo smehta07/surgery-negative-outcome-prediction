@@ -1,0 +1,76 @@
+<!-- 
+    Page which processes uploaded data     
+-->
+
+{% extends "adminbase.html" %}
+{% block content %}
+<!doctype html>
+
+<head>
+    <style>
+            h1,h2              { color: black; text-align: center}
+    body            { font-family: sans-serif; background: linear-gradient(to bottom , white 70%,#0072CE); height: 100%; background-repeat: no-repeat; background-attachment: fixed;}
+    .div1 
+      {     position: relative;
+    top: 50; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 400px;
+    height: 125px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 0 18px #003087;
+    -webkit-box-shadow: 0 0 18px #003087;
+    -box-shadow: 0 0 18px #003087;
+    text-align: center;}
+    .div2 
+      {     position: relative;
+    top: 70; left: 0; bottom: 0; right: 0;
+    margin: auto;
+    width: 600px;
+    height: 450px;
+    
+    background: white;
+    padding: 22px 32px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 0 18px #003087;
+    -webkit-box-shadow: 0 0 18px #003087;
+    -box-shadow: 0 0 18px #003087;
+    text-align: center;}
+    </style>
+
+</head>
+
+
+<title>Processing Successful</title>
+<body>
+<h1>Processing Successful</h1>
+<div class="div1">
+<!--p>If you are overwriting an old datafile please click this:</p>
+<form action="/overwrite" >
+    <p><input type=submit value=Overwrite>
+</form-->
+<p> To build a model click here: </p>
+<form action="/selectcols" >
+    <p><input type=submit value="Build Model">
+  </form>
+</div>
+
+<div class="div2">
+<h2>
+    Summary Statistics for the outcomes data:<br></h2> 
+    <p>Key: 1 indicates Y and 1 indicates N</p>
+    {{stats | safe }}
+<br>
+<p> To see the full Statistics generated please click here to export a csv:</p>
+<form action="/exportStats" >
+    <p><input type=submit value="Export Stats">
+  </form>
+</div>
+</body>
+{% endblock %}
